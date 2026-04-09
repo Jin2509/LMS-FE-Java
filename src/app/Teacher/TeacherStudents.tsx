@@ -121,33 +121,33 @@ export default function TeacherStudents() {
     <Layout>
       <div className="max-w-7xl">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Students</h1>
-          <p className="text-gray-600 mt-1">Monitor and manage student performance</p>
+          <h1 className="text-3xl font-bold text-gray-900">Quản lí học viên</h1>
+          <p className="text-gray-600 mt-1">Giám sát và quản lí quá trình học viên</p>
         </div>
 
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <Card>
             <CardContent className="p-6">
-              <p className="text-sm text-gray-600 mb-2">Total Students</p>
+              <p className="text-sm text-gray-600 mb-2">Tổng số lượng học viên</p>
               <p className="text-3xl font-bold text-gray-900">{students.length}</p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="p-6">
-              <p className="text-sm text-gray-600 mb-2">Excelling</p>
+              <p className="text-sm text-gray-600 mb-2">Xuất sắc</p>
               <p className="text-3xl font-bold text-green-600">{excellingCount}</p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="p-6">
-              <p className="text-sm text-gray-600 mb-2">At Risk</p>
+              <p className="text-sm text-gray-600 mb-2">Trung bình</p>
               <p className="text-3xl font-bold text-red-600">{atRiskCount}</p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="p-6">
-              <p className="text-sm text-gray-600 mb-2">Avg. Grade</p>
+              <p className="text-sm text-gray-600 mb-2">Trung bình khoá</p>
               <p className="text-3xl font-bold text-indigo-600">{averageGrade.toFixed(1)}%</p>
             </CardContent>
           </Card>
@@ -160,7 +160,7 @@ export default function TeacherStudents() {
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                 <Input
-                  placeholder="Search students..."
+                  placeholder="Tìm kiếm theo tên sinh viên..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="pl-10"
@@ -171,7 +171,7 @@ export default function TeacherStudents() {
                   <SelectValue placeholder="Filter by course" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Courses</SelectItem>
+                  <SelectItem value="all">Tất cả khoá học</SelectItem>
                   <SelectItem value="Web Development Fundamentals">Web Development</SelectItem>
                   <SelectItem value="Introduction to Computer Science">Computer Science</SelectItem>
                 </SelectContent>
@@ -181,10 +181,10 @@ export default function TeacherStudents() {
                   <SelectValue placeholder="Filter by status" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Status</SelectItem>
-                  <SelectItem value="excelling">Excelling</SelectItem>
-                  <SelectItem value="active">Active</SelectItem>
-                  <SelectItem value="at-risk">At Risk</SelectItem>
+                  <SelectItem value="all">Tất cả trạng thái</SelectItem>
+                  <SelectItem value="excelling">Xuất sắc</SelectItem>
+                  <SelectItem value="active">Tích cực</SelectItem>
+                  <SelectItem value="at-risk">Trung bình</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -194,20 +194,20 @@ export default function TeacherStudents() {
         {/* Students Table */}
         <Card>
           <CardHeader>
-            <CardTitle>Student List</CardTitle>
-            <CardDescription>Detailed view of all enrolled students</CardDescription>
+            <CardTitle>Danh sách học viên</CardTitle>
+            <CardDescription>Chi tiết học viên đăng ký</CardDescription>
           </CardHeader>
           <CardContent>
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Student</TableHead>
-                  <TableHead>Course</TableHead>
-                  <TableHead>Progress</TableHead>
-                  <TableHead>Grade</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead>Last Active</TableHead>
-                  <TableHead className="text-right">Actions</TableHead>
+                  <TableHead>Tên học viên</TableHead>
+                  <TableHead>Khoá</TableHead>
+                  <TableHead>Tiến trình học</TableHead>
+                  <TableHead>Thứ hạng</TableHead>
+                  <TableHead>Trạng thái học</TableHead>
+                  <TableHead>Đăng nhập lần cuối</TableHead>
+                  <TableHead className="text-right">Hoạt động</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>

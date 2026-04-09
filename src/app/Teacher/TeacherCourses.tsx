@@ -64,24 +64,24 @@ export default function TeacherCourses() {
       <div className="max-w-7xl">
         <div className="mb-8 flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">My Courses</h1>
-            <p className="text-gray-600 mt-1">Manage your courses and content</p>
+            <h1 className="text-3xl font-bold text-gray-900">Khoá học của tôi</h1>
+            <p className="text-gray-600 mt-1">Quản lí khoá học và nội dung của bạn</p>
           </div>
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
             <DialogTrigger asChild>
               <Button className="gap-2">
                 <Plus className="w-4 h-4" />
-                Create New Course
+                Tạo khoá học mới
               </Button>
             </DialogTrigger>
             <DialogContent className="max-w-2xl">
               <DialogHeader>
-                <DialogTitle>Create New Course</DialogTitle>
-                <DialogDescription>Add a new course to your teaching portfolio</DialogDescription>
+                <DialogTitle>Tạo khoá học mới</DialogTitle>
+                <DialogDescription>Thêm một khoá học mới vào danh mục giảng dạy của bạn</DialogDescription>
               </DialogHeader>
               <div className="space-y-4 py-4">
                 <div className="space-y-2">
-                  <Label htmlFor="title">Course Title</Label>
+                  <Label htmlFor="title">Tên khoá học</Label>
                   <Input
                     id="title"
                     placeholder="Introduction to Machine Learning"
@@ -102,7 +102,7 @@ export default function TeacherCourses() {
                   <Label htmlFor="description">Description</Label>
                   <Textarea
                     id="description"
-                    placeholder="Describe what students will learn in this course..."
+                    placeholder="Mô tả những gì sinh viên sẽ học trong khoá học này"
                     value={newCourse.description}
                     onChange={(e) => setNewCourse({ ...newCourse, description: e.target.value })}
                     rows={4}
@@ -110,10 +110,10 @@ export default function TeacherCourses() {
                 </div>
                 <div className="flex gap-3 justify-end pt-4">
                   <Button variant="outline" onClick={() => setIsDialogOpen(false)}>
-                    Cancel
+                    Huỷ bỏ
                   </Button>
                   <Button onClick={handleCreateCourse}>
-                    Create Course
+                    Tạo khoá học mới
                   </Button>
                 </div>
               </div>
@@ -126,7 +126,7 @@ export default function TeacherCourses() {
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <Input
-              placeholder="Search courses..."
+              placeholder="Tìm kiếm khoá học..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="pl-10"
@@ -140,7 +140,7 @@ export default function TeacherCourses() {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-600">Total Courses</p>
+                  <p className="text-sm text-gray-600">Tên khoá học</p>
                   <p className="text-2xl font-bold text-gray-900 mt-1">{myCourses.length}</p>
                 </div>
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -153,7 +153,7 @@ export default function TeacherCourses() {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-600">Total Students</p>
+                  <p className="text-sm text-gray-600">Tổng số học viên</p>
                   <p className="text-2xl font-bold text-gray-900 mt-1">156</p>
                 </div>
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
@@ -166,7 +166,7 @@ export default function TeacherCourses() {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-600">Avg. Enrollment</p>
+                  <p className="text-sm text-gray-600">Số lượng đăng ký trung bình</p>
                   <p className="text-2xl font-bold text-gray-900 mt-1">52</p>
                 </div>
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
@@ -247,14 +247,14 @@ export default function TeacherCourses() {
           <Card>
             <CardContent className="p-12 text-center">
               <BookOpen className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-              <h3 className="font-semibold text-gray-900 mb-2">No courses found</h3>
+              <h3 className="font-semibold text-gray-900 mb-2">Không tìm thấy khoá học</h3>
               <p className="text-gray-600 mb-4">
                 {searchQuery ? 'Try a different search term' : 'Create your first course to get started'}
               </p>
               {!searchQuery && (
                 <Button onClick={() => setIsDialogOpen(true)} className="gap-2">
                   <Plus className="w-4 h-4" />
-                  Create Course
+                  Tạo khoá học mới
                 </Button>
               )}
             </CardContent>

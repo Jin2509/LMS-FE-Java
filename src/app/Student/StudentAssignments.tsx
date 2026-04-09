@@ -7,6 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs'
 import { assignments } from '../lib/data';
 import { Calendar, Clock, FileText, CheckCircle, AlertCircle, ArrowRight, Download } from 'lucide-react';
 import { Link } from 'react-router';
+import { toast } from 'sonner';
 
 export default function StudentAssignments() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);

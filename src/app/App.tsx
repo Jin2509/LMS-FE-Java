@@ -4,7 +4,6 @@ import { Toaster } from './components/ui/sonner';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { ConsoleWarningFilter } from './components/ConsoleWarningFilter';
 
-// Main App component - LMS System
 export default function App() {
   return (
     <ErrorBoundary>

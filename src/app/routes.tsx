@@ -1,22 +1,22 @@
 import { createBrowserRouter, Navigate, redirect } from 'react-router';
 import Login from './pages/Login';
-import StudentDashboard from './pages/StudentDashboard';
-import StudentCourses from './pages/StudentCourses';
-import StudentClasses from './pages/StudentClasses';
-import StudentAssignments from './pages/StudentAssignments';
-import StudentGrades from './pages/StudentGrades';
-import StudentHistory from './pages/StudentHistory';
-import StudentSchedule from './pages/StudentSchedule';
-import StudentSettings from './pages/StudentSettings';
-import StudentDiscussions from './pages/StudentDiscussions';
-import TeacherDashboard from './pages/TeacherDashboard';
-import TeacherCourses from './pages/TeacherCourses';
-import TeacherClasses from './pages/TeacherClasses';
-import TeacherStudents from './pages/TeacherStudents';
-import TeacherAssignments from './pages/TeacherAssignments';
-import TeacherHistory from './pages/TeacherHistory';
-import TeacherSettings from './pages/TeacherSettings';
-import TeacherDiscussions from './pages/TeacherDiscussions';
+import StudentDashboard from '../app/Student/StudentDashboard';
+import StudentCourses from '../app/Student/StudentCourses';
+import StudentClasses from '../app/Student/StudentClasses';
+import StudentAssignments from '../app/Student/StudentAssignments';
+import StudentGrades from '../app/Student/StudentGrades';
+import StudentHistory from '../app/Student/StudentHistory';
+import StudentSchedule from '../app/Student/StudentSchedule';
+import StudentSettings from '../app/Student/StudentSettings';
+import StudentDiscussions from '../app/Student/StudentDiscussions';
+import TeacherDashboard from '../app/Teacher/TeacherDashboard';
+import TeacherCourses from '../app/Teacher/TeacherCourses';
+import TeacherClasses from '../app/Teacher/TeacherClasses';
+import TeacherStudents from '../app/Teacher/TeacherStudents';
+import TeacherAssignments from '../app/Teacher/TeacherAssignments';
+import TeacherHistory from '../app/Teacher/TeacherHistory';
+import TeacherSettings from '../app/Teacher/TeacherSettings';
+import TeacherDiscussions from '../app/Teacher/TeacherDiscussions';
 import CoursePage from './pages/CoursePage';
 import ClassDetail from './pages/ClassDetail';
 import Profile from './pages/Profile';
@@ -26,15 +26,15 @@ import ExamDetail from './pages/ExamDetail';
 import TakeExam from './pages/TakeExam';
 import AssignmentDetail from './pages/AssignmentDetail';
 import AssignmentSubmissions from './pages/AssignmentSubmissions';
-import AdminDashboard from './pages/AdminDashboard';
-import AdminUsers from './pages/AdminUsers';
-import AdminCreateUser from './pages/AdminCreateUser';
-import AdminClasses from './pages/AdminClasses';
-import AdminDiscussions from './pages/AdminDiscussions';
-import AdminCourses from './pages/AdminCourses';
-import AdminAssignments from './pages/AdminAssignments';
-import AdminReports from './pages/AdminReports';
-import AdminSettings from './pages/AdminSettings';
+import AdminDashboard from '../app/Admin/AdminDashboard';
+import AdminUsers from '../app/Admin/AdminUsers';
+import AdminCreateUser from '../app/Admin/AdminCreateUser';
+import AdminClasses from '../app/Admin/AdminClasses';
+import AdminDiscussions from '../app/Admin/AdminDiscussions';
+import AdminCourses from './Admin/AdminCourses';
+import AdminAssignments from '../app/Admin/AdminAssignments';
+import AdminReports from '../app/Admin/AdminReports';
+import AdminSettings from '../app/Admin/AdminSettings';
 import { isAuthenticated, getCurrentUser } from './lib/auth';
 
 // Auth loader function
@@ -287,9 +287,4 @@ export const router = createBrowserRouter(
       element: <Navigate to="/" replace />,
     },
   ],
-  {
-    future: {
-      v7_skipActionErrorRevalidation: true,
-    },
-  }
 );

@@ -21,7 +21,6 @@ export default function Login() {
       const user = login(email, password);
       
       if (user) {
-        // Redirect based on role
         if (user.role === 'student') {
           navigate('/student/dashboard');
         } else if (user.role === 'teacher') {
@@ -46,10 +45,10 @@ export default function Login() {
         <div className="w-full max-w-md">
           {/* Logo and Header */}
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-2xl mb-4">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-[#73A5CA] rounded-2xl mb-4">
               <GraduationCap className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
+            <h1 className="text-4xl font-bold bg-black bg-clip-text text-transparent mb-2">
               Chào mừng trở lại
             </h1>
             <p className="text-gray-600">
@@ -67,7 +66,9 @@ export default function Login() {
             )}
 
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-gray-700">Email</Label>
+              <Label htmlFor="email" className="text-gray-700">
+                Email
+              </Label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <Input
@@ -83,7 +84,9 @@ export default function Login() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-gray-700">Mật khẩu</Label>
+              <Label htmlFor="password" className="text-gray-700">
+                Mật khẩu
+              </Label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <Input
@@ -101,10 +104,10 @@ export default function Login() {
             <Button
               type="submit"
               disabled={loading}
-              className="w-full h-12 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 text-white font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="w-full h-12 bg-[#73A5CA] hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 text-white font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               {loading ? (
-                'Đang đăng nhập...'
+                "Đang đăng nhập..."
               ) : (
                 <span className="flex items-center justify-center gap-2">
                   Đăng nhập
@@ -121,18 +124,33 @@ export default function Login() {
               Tài khoản demo
             </h3>
             <div className="space-y-3 text-sm">
-              <div className="p-3 bg-white rounded-lg border border-gray-200 hover:border-indigo-300 transition-colors cursor-pointer"
-                   onClick={() => { setEmail('student@lms.com'); setPassword('password'); }}>
+              <div
+                className="p-3 bg-white rounded-lg border border-gray-200 hover:border-indigo-300 transition-colors cursor-pointer"
+                onClick={() => {
+                  setEmail("student@lms.com");
+                  setPassword("password");
+                }}
+              >
                 <p className="font-medium text-gray-900 mb-1">Học sinh</p>
                 <p className="text-gray-600">student@lms.com / password</p>
               </div>
-              <div className="p-3 bg-white rounded-lg border border-gray-200 hover:border-purple-300 transition-colors cursor-pointer"
-                   onClick={() => { setEmail('teacher@lms.com'); setPassword('password'); }}>
+              <div
+                className="p-3 bg-white rounded-lg border border-gray-200 hover:border-purple-300 transition-colors cursor-pointer"
+                onClick={() => {
+                  setEmail("teacher@lms.com");
+                  setPassword("password");
+                }}
+              >
                 <p className="font-medium text-gray-900 mb-1">Giáo viên</p>
                 <p className="text-gray-600">teacher@lms.com / password</p>
               </div>
-              <div className="p-3 bg-white rounded-lg border border-gray-200 hover:border-pink-300 transition-colors cursor-pointer"
-                   onClick={() => { setEmail('admin@lms.com'); setPassword('password'); }}>
+              <div
+                className="p-3 bg-white rounded-lg border border-gray-200 hover:border-pink-300 transition-colors cursor-pointer"
+                onClick={() => {
+                  setEmail("admin@lms.com");
+                  setPassword("password");
+                }}
+              >
                 <p className="font-medium text-gray-900 mb-1">Quản trị viên</p>
                 <p className="text-gray-600">admin@lms.com / password</p>
               </div>
@@ -145,17 +163,16 @@ export default function Login() {
       <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
-          <img 
-            alt="Students learning" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/90 via-purple-600/90 to-pink-600/90"></div>
+          <img alt="Students learning" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-[#5E7AC4] to-pink-600/90"></div>
         </div>
 
         {/* Content */}
         <div className="relative z-10 flex flex-col justify-center p-12 text-white">
           <h2 className="text-5xl font-bold mb-6 leading-tight">
-            Nền tảng học tập<br />hiện đại
+            Nền tảng học tập
+            <br />
+            hiện đại
           </h2>
           <p className="text-xl mb-12 text-white/90 max-w-lg">
             Hệ thống quản lý học tập toàn diện cho học sinh và giáo viên
@@ -169,7 +186,9 @@ export default function Login() {
               </div>
               <div>
                 <h3 className="font-semibold mb-1">Khóa học đa dạng</h3>
-                <p className="text-sm text-white/80">Hàng trăm khóa học chất lượng cao</p>
+                <p className="text-sm text-white/80">
+                  Hàng trăm khóa học chất lượng cao
+                </p>
               </div>
             </div>
 
@@ -179,7 +198,9 @@ export default function Login() {
               </div>
               <div>
                 <h3 className="font-semibold mb-1">Cộng đồng học tập</h3>
-                <p className="text-sm text-white/80">Kết nối với bạn bè và giáo viên</p>
+                <p className="text-sm text-white/80">
+                  Kết nối với bạn bè và giáo viên
+                </p>
               </div>
             </div>
 
@@ -189,7 +210,9 @@ export default function Login() {
               </div>
               <div>
                 <h3 className="font-semibold mb-1">Chứng chỉ uy tín</h3>
-                <p className="text-sm text-white/80">Được công nhận trong ngành</p>
+                <p className="text-sm text-white/80">
+                  Được công nhận trong ngành
+                </p>
               </div>
             </div>
 
@@ -199,7 +222,9 @@ export default function Login() {
               </div>
               <div>
                 <h3 className="font-semibold mb-1">Theo dõi tiến độ</h3>
-                <p className="text-sm text-white/80">Báo cáo chi tiết và phân tích</p>
+                <p className="text-sm text-white/80">
+                  Báo cáo chi tiết và phân tích
+                </p>
               </div>
             </div>
           </div>

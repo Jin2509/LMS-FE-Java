@@ -61,8 +61,8 @@ export default function StudentDashboard() {
     <Layout>
       <div className="max-w-7xl">
         <div className="mb-8">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
-            Chào mừng trở lại! 👋
+          <h1 className="text-5xl font-bold bg-red-600 bg-clip-text text-transparent mb-2">
+            Chào mừng quay trở lại!
           </h1>
           <p className="text-gray-600 mt-1">Tiếp tục hành trình học tập của bạn</p>
         </div>
