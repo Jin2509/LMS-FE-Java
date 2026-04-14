@@ -162,10 +162,12 @@ export default function StudentGrades() {
     <Layout>
       <div className="max-w-7xl">
         <div className="mb-8">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+          <h1 className="text-5xl font-bold text-[#5E7AC4] mb-2">
             Điểm số & Lịch sử học tập
           </h1>
-          <p className="text-gray-600 mt-1">Theo dõi kết quả học tập và tiến độ của bạn</p>
+          <p className="text-gray-600 mt-1">
+            Theo dõi kết quả học tập và tiến độ của bạn
+          </p>
         </div>
 
         {/* Stats Grid */}
@@ -176,22 +178,28 @@ export default function StudentGrades() {
               <Card key={stat.label}>
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <div className={`w-12 h-12 ${stat.bgColor} rounded-lg flex items-center justify-center`}>
+                    <div
+                      className={`w-12 h-12 ${stat.bgColor} rounded-lg flex items-center justify-center`}
+                    >
                       <Icon className={`w-6 h-6 ${stat.color}`} />
                     </div>
                     <div className="flex items-center gap-1">
-                      {stat.trend === 'up' ? (
+                      {stat.trend === "up" ? (
                         <TrendingUp className="w-4 h-4 text-green-600" />
                       ) : (
                         <TrendingDown className="w-4 h-4 text-red-600" />
                       )}
-                      <span className={`text-xs font-semibold ${stat.trend === 'up' ? 'text-green-600' : 'text-red-600'}`}>
+                      <span
+                        className={`text-xs font-semibold ${stat.trend === "up" ? "text-green-600" : "text-red-600"}`}
+                      >
                         {stat.change}
                       </span>
                     </div>
                   </div>
                   <p className="text-sm text-gray-600">{stat.label}</p>
-                  <p className="text-2xl font-bold text-gray-900 mt-1">{stat.value}</p>
+                  <p className="text-2xl font-bold text-gray-900 mt-1">
+                    {stat.value}
+                  </p>
                 </CardContent>
               </Card>
             );
@@ -212,23 +220,28 @@ export default function StudentGrades() {
               <Card>
                 <CardHeader>
                   <CardTitle>Xu hướng điểm số</CardTitle>
-                  <CardDescription>Theo dõi sự tiến bộ theo thời gian</CardDescription>
+                  <CardDescription>
+                    Theo dõi sự tiến bộ theo thời gian
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <ResponsiveContainer width="100%" height={300}>
                     <LineChart data={progressData}>
-                      <CartesianGrid key="cartesian-grid-line" strokeDasharray="3 3" />
+                      <CartesianGrid
+                        key="cartesian-grid-line"
+                        strokeDasharray="3 3"
+                      />
                       <XAxis key="xaxis-line" dataKey="month" />
                       <YAxis key="yaxis-line" domain={[0, 100]} />
                       <Tooltip key="tooltip-line" />
                       <Legend key="legend-line" />
-                      <Line 
+                      <Line
                         key="line-gpa"
-                        type="monotone" 
-                        dataKey="gpa" 
-                        stroke="#8884d8" 
-                        strokeWidth={2} 
-                        name="Điểm TB" 
+                        type="monotone"
+                        dataKey="gpa"
+                        stroke="#8884d8"
+                        strokeWidth={2}
+                        name="Điểm TB"
                       />
                     </LineChart>
                   </ResponsiveContainer>
@@ -239,7 +252,9 @@ export default function StudentGrades() {
               <Card>
                 <CardHeader>
                   <CardTitle>Phân bố kết quả</CardTitle>
-                  <CardDescription>Tỷ lệ phần trăm theo từng mức điểm</CardDescription>
+                  <CardDescription>
+                    Tỷ lệ phần trăm theo từng mức điểm
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <ResponsiveContainer width="100%" height={300}>
@@ -268,17 +283,27 @@ export default function StudentGrades() {
               <Card className="lg:col-span-2">
                 <CardHeader>
                   <CardTitle>Phân bố điểm số</CardTitle>
-                  <CardDescription>Số lượng bài tập theo từng khoảng điểm</CardDescription>
+                  <CardDescription>
+                    Số lượng bài tập theo từng khoảng điểm
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <ResponsiveContainer width="100%" height={300}>
                     <BarChart data={gradeDistribution}>
-                      <CartesianGrid key="cartesian-grid-bar" strokeDasharray="3 3" />
+                      <CartesianGrid
+                        key="cartesian-grid-bar"
+                        strokeDasharray="3 3"
+                      />
                       <XAxis key="xaxis-bar" dataKey="range" />
                       <YAxis key="yaxis-bar" />
                       <Tooltip key="tooltip-bar" />
                       <Legend key="legend-bar" />
-                      <Bar key="bar-count" dataKey="count" fill="#8884d8" name="Số bài tập">
+                      <Bar
+                        key="bar-count"
+                        dataKey="count"
+                        fill="#8884d8"
+                        name="Số bài tập"
+                      >
                         {gradeDistribution.map((entry, index) => (
                           <Cell key={`cell-${index}`} fill={entry.color} />
                         ))}
@@ -304,8 +329,12 @@ export default function StudentGrades() {
                       </div>
                       <div className="flex items-center gap-4">
                         <div className="text-right">
-                          <p className="text-sm text-gray-600">Điểm trung bình</p>
-                          <p className="text-3xl font-bold text-gray-900">{course.averageGrade}</p>
+                          <p className="text-sm text-gray-600">
+                            Điểm trung bình
+                          </p>
+                          <p className="text-3xl font-bold text-gray-900">
+                            {course.averageGrade}
+                          </p>
                         </div>
                         <Badge className={`${gradeStatus.color} text-white`}>
                           {gradeStatus.label}
@@ -319,10 +348,13 @@ export default function StudentGrades() {
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center gap-2">
                           <Calendar className="w-5 h-5 text-gray-600" />
-                          <span className="text-sm font-semibold text-gray-900">Tỷ lệ tham gia</span>
+                          <span className="text-sm font-semibold text-gray-900">
+                            Tỷ lệ tham gia
+                          </span>
                         </div>
                         <span className="text-sm font-bold text-gray-900">
-                          {course.attendedClasses}/{course.totalClasses} buổi ({course.attendance}%)
+                          {course.attendedClasses}/{course.totalClasses} buổi (
+                          {course.attendance}%)
                         </span>
                       </div>
                       <Progress value={course.attendance} className="h-2" />
@@ -343,7 +375,9 @@ export default function StudentGrades() {
                             <div className="flex items-center gap-3">
                               <CheckCircle className="w-5 h-5 text-green-600" />
                               <div>
-                                <p className="font-medium text-gray-900">{assignment.name}</p>
+                                <p className="font-medium text-gray-900">
+                                  {assignment.name}
+                                </p>
                                 <div className="flex items-center gap-2 text-sm text-gray-600">
                                   <Clock className="w-4 h-4" />
                                   <span>Nộp: {assignment.submittedDate}</span>
@@ -354,8 +388,18 @@ export default function StudentGrades() {
                               <p className="text-2xl font-bold text-gray-900">
                                 {assignment.grade}/{assignment.maxGrade}
                               </p>
-                              <Badge variant={assignment.grade >= 90 ? 'default' : 'secondary'}>
-                                {((assignment.grade / assignment.maxGrade) * 100).toFixed(0)}%
+                              <Badge
+                                variant={
+                                  assignment.grade >= 90
+                                    ? "default"
+                                    : "secondary"
+                                }
+                              >
+                                {(
+                                  (assignment.grade / assignment.maxGrade) *
+                                  100
+                                ).toFixed(0)}
+                                %
                               </Badge>
                             </div>
                           </div>
@@ -377,23 +421,31 @@ export default function StudentGrades() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  {gradesByCourse.flatMap(course =>
-                    course.assignments.map(assignment => ({
-                      ...assignment,
-                      courseName: course.courseName,
-                      instructor: course.instructor,
-                    }))
-                  ).sort((a, b) => new Date(b.submittedDate).getTime() - new Date(a.submittedDate).getTime())
+                  {gradesByCourse
+                    .flatMap((course) =>
+                      course.assignments.map((assignment) => ({
+                        ...assignment,
+                        courseName: course.courseName,
+                        instructor: course.instructor,
+                      })),
+                    )
+                    .sort(
+                      (a, b) =>
+                        new Date(b.submittedDate).getTime() -
+                        new Date(a.submittedDate).getTime(),
+                    )
                     .map((item, index) => {
                       const percentage = (item.grade / item.maxGrade) * 100;
                       const isPassed = percentage >= 60;
-                      
+
                       return (
                         <div
                           key={index}
                           className="flex items-center gap-4 p-4 border border-gray-200 rounded-lg hover:border-indigo-300 transition-colors"
                         >
-                          <div className={`w-12 h-12 rounded-full flex items-center justify-center ${isPassed ? 'bg-green-100' : 'bg-red-100'}`}>
+                          <div
+                            className={`w-12 h-12 rounded-full flex items-center justify-center ${isPassed ? "bg-green-100" : "bg-red-100"}`}
+                          >
                             {isPassed ? (
                               <CheckCircle className="w-6 h-6 text-green-600" />
                             ) : (
@@ -402,7 +454,9 @@ export default function StudentGrades() {
                           </div>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 mb-1">
-                              <h4 className="font-semibold text-gray-900">{item.name}</h4>
+                              <h4 className="font-semibold text-gray-900">
+                                {item.name}
+                              </h4>
                               <Badge variant="outline">{item.courseName}</Badge>
                             </div>
                             <div className="flex items-center gap-3 text-sm text-gray-600">
@@ -418,7 +472,15 @@ export default function StudentGrades() {
                             <p className="text-2xl font-bold text-gray-900">
                               {item.grade}/{item.maxGrade}
                             </p>
-                            <Badge variant={percentage >= 90 ? 'default' : percentage >= 60 ? 'secondary' : 'destructive'}>
+                            <Badge
+                              variant={
+                                percentage >= 90
+                                  ? "default"
+                                  : percentage >= 60
+                                    ? "secondary"
+                                    : "destructive"
+                              }
+                            >
                               {percentage.toFixed(0)}%
                             </Badge>
                           </div>

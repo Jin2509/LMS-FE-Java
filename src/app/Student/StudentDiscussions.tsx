@@ -168,12 +168,17 @@ export default function StudentDiscussions() {
         <div className="mb-8">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-5xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent mb-2">
+              <h1 className="text-5xl font-bold text-[#5E7AC4] mb-2">
                 Thảo luận
               </h1>
-              <p className="text-gray-600 mt-1">Trao đổi, học hỏi và chia sẻ kiến thức</p>
+              <p className="text-gray-600 mt-1">
+                Trao đổi, học hỏi và chia sẻ kiến thức
+              </p>
             </div>
-            <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
+            <Dialog
+              open={isCreateDialogOpen}
+              onOpenChange={setIsCreateDialogOpen}
+            >
               <DialogTrigger asChild>
                 <Button className="gap-2">
                   <Plus className="w-4 h-4" />
@@ -192,7 +197,12 @@ export default function StudentDiscussions() {
                     <label className="text-sm font-medium">Danh mục</label>
                     <select
                       value={newDiscussion.category}
-                      onChange={(e) => setNewDiscussion({ ...newDiscussion, category: e.target.value })}
+                      onChange={(e) =>
+                        setNewDiscussion({
+                          ...newDiscussion,
+                          category: e.target.value,
+                        })
+                      }
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     >
                       <option value="general">Chung</option>
@@ -208,7 +218,12 @@ export default function StudentDiscussions() {
                     <Input
                       placeholder="Nhập tiêu đề..."
                       value={newDiscussion.title}
-                      onChange={(e) => setNewDiscussion({ ...newDiscussion, title: e.target.value })}
+                      onChange={(e) =>
+                        setNewDiscussion({
+                          ...newDiscussion,
+                          title: e.target.value,
+                        })
+                      }
                     />
                   </div>
                   <div className="space-y-2">
@@ -216,13 +231,21 @@ export default function StudentDiscussions() {
                     <Textarea
                       placeholder="Mô tả chi tiết..."
                       value={newDiscussion.content}
-                      onChange={(e) => setNewDiscussion({ ...newDiscussion, content: e.target.value })}
+                      onChange={(e) =>
+                        setNewDiscussion({
+                          ...newDiscussion,
+                          content: e.target.value,
+                        })
+                      }
                       rows={6}
                     />
                   </div>
                 </div>
                 <div className="flex gap-2 justify-end">
-                  <Button variant="outline" onClick={() => setIsCreateDialogOpen(false)}>
+                  <Button
+                    variant="outline"
+                    onClick={() => setIsCreateDialogOpen(false)}
+                  >
                     Hủy
                   </Button>
                   <Button onClick={handleCreateDiscussion}>Đăng</Button>
@@ -250,7 +273,7 @@ export default function StudentDiscussions() {
                 {categories.map((cat) => (
                   <Button
                     key={cat}
-                    variant={selectedCategory === cat ? 'default' : 'outline'}
+                    variant={selectedCategory === cat ? "default" : "outline"}
                     size="sm"
                     onClick={() => setSelectedCategory(cat)}
                     className="whitespace-nowrap"
@@ -266,7 +289,10 @@ export default function StudentDiscussions() {
         {/* Discussions List */}
         <div className="space-y-4">
           {filteredDiscussions.map((discussion) => (
-            <Card key={discussion.id} className="hover:shadow-lg transition-shadow cursor-pointer">
+            <Card
+              key={discussion.id}
+              className="hover:shadow-lg transition-shadow cursor-pointer"
+            >
               <CardContent className="p-6">
                 <div className="flex gap-4">
                   {/* Avatar */}
@@ -294,7 +320,9 @@ export default function StudentDiscussions() {
                           {discussion.content}
                         </p>
                         <div className="flex items-center gap-4 text-sm text-gray-500">
-                          <span className="font-medium text-gray-700">{discussion.author}</span>
+                          <span className="font-medium text-gray-700">
+                            {discussion.author}
+                          </span>
                           <span>•</span>
                           <Badge variant="outline">{discussion.category}</Badge>
                           <span>•</span>
@@ -308,12 +336,14 @@ export default function StudentDiscussions() {
 
                     {/* Stats */}
                     <div className="flex items-center gap-6 mt-4 pt-4 border-t border-gray-100">
-                      <button 
+                      <button
                         className="flex items-center gap-2 text-gray-600 hover:text-indigo-600 transition-colors"
                         onClick={() => setSelectedThread(discussion.id)}
                       >
                         <MessageCircle className="w-5 h-5" />
-                        <span className="font-medium">{discussion.replies}</span>
+                        <span className="font-medium">
+                          {discussion.replies}
+                        </span>
                         <span className="text-sm">phản hồi</span>
                       </button>
                       <button className="flex items-center gap-2 text-gray-600 hover:text-pink-600 transition-colors">
@@ -344,22 +374,27 @@ export default function StudentDiscussions() {
 
         {/* Thread Detail Dialog */}
         {selectedThread && (
-          <Dialog open={!!selectedThread} onOpenChange={() => setSelectedThread(null)}>
+          <Dialog
+            open={!!selectedThread}
+            onOpenChange={() => setSelectedThread(null)}
+          >
             <DialogContent className="sm:max-w-[800px] max-h-[80vh] overflow-y-auto">
               <DialogHeader>
                 <DialogTitle className="text-xl">
-                  {discussions.find(d => d.id === selectedThread)?.title}
+                  {discussions.find((d) => d.id === selectedThread)?.title}
                 </DialogTitle>
                 <DialogDescription>
-                  Bởi {discussions.find(d => d.id === selectedThread)?.author} • {discussions.find(d => d.id === selectedThread)?.createdAt}
+                  Bởi {discussions.find((d) => d.id === selectedThread)?.author}{" "}
+                  •{" "}
+                  {discussions.find((d) => d.id === selectedThread)?.createdAt}
                 </DialogDescription>
               </DialogHeader>
-              
+
               <div className="space-y-6 py-4">
                 {/* Original Post */}
                 <div className="p-4 bg-gray-50 rounded-lg">
                   <p className="text-gray-800">
-                    {discussions.find(d => d.id === selectedThread)?.content}
+                    {discussions.find((d) => d.id === selectedThread)?.content}
                   </p>
                 </div>
 
@@ -369,7 +404,10 @@ export default function StudentDiscussions() {
                     Phản hồi ({threadReplies.length})
                   </h3>
                   {threadReplies.map((reply) => (
-                    <div key={reply.id} className="flex gap-3 p-4 border border-gray-200 rounded-lg">
+                    <div
+                      key={reply.id}
+                      className="flex gap-3 p-4 border border-gray-200 rounded-lg"
+                    >
                       <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center flex-shrink-0">
                         <span className="text-white font-semibold">
                           {reply.authorAvatar}
@@ -377,8 +415,12 @@ export default function StudentDiscussions() {
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-2">
-                          <span className="font-semibold text-gray-900">{reply.author}</span>
-                          <span className="text-sm text-gray-500">{reply.createdAt}</span>
+                          <span className="font-semibold text-gray-900">
+                            {reply.author}
+                          </span>
+                          <span className="text-sm text-gray-500">
+                            {reply.createdAt}
+                          </span>
                         </div>
                         <p className="text-gray-700 mb-2">{reply.content}</p>
                         <button className="flex items-center gap-1 text-sm text-gray-600 hover:text-pink-600">
@@ -392,7 +434,9 @@ export default function StudentDiscussions() {
 
                 {/* Reply Form */}
                 <div className="border-t pt-4">
-                  <h3 className="font-semibold text-gray-900 mb-3">Phản hồi của bạn</h3>
+                  <h3 className="font-semibold text-gray-900 mb-3">
+                    Phản hồi của bạn
+                  </h3>
                   <div className="space-y-3">
                     <Textarea
                       placeholder="Nhập phản hồi của bạn..."
@@ -401,7 +445,10 @@ export default function StudentDiscussions() {
                       rows={4}
                     />
                     <div className="flex justify-end">
-                      <Button onClick={() => handleReply(selectedThread)} className="gap-2">
+                      <Button
+                        onClick={() => handleReply(selectedThread)}
+                        className="gap-2"
+                      >
                         <Send className="w-4 h-4" />
                         Gửi phản hồi
                       </Button>

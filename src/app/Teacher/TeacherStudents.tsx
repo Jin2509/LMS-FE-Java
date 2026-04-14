@@ -121,7 +121,7 @@ export default function TeacherStudents() {
     <Layout>
       <div className="max-w-7xl">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Quản lí học viên</h1>
+          <h1 className="text-5xl font-bold  text-[#5E7AC4]">Quản lí học viên</h1>
           <p className="text-gray-600 mt-1">Giám sát và quản lí quá trình học viên</p>
         </div>
 

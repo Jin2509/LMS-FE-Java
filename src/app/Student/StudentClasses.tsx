@@ -12,10 +12,12 @@ export default function StudentClasses() {
     <Layout>
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">
+          <h1 className="text-5xl font-bold text-[#5E7AC4] mb-2">
             Lớp học của tôi
           </h1>
-          <p className="text-gray-600 mt-1">Tất cả các lớp học bạn đã đăng ký</p>
+          <p className="text-gray-600 mt-1">
+            Tất cả các lớp học bạn đã đăng ký
+          </p>
         </div>
 
         {/* Stats */}
@@ -25,7 +27,9 @@ export default function StudentClasses() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600">Tổng số lớp</p>
-                  <p className="text-3xl font-bold text-gray-900 mt-1">{classes.length}</p>
+                  <p className="text-3xl font-bold text-gray-900 mt-1">
+                    {classes.length}
+                  </p>
                 </div>
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                   <Users className="w-6 h-6 text-blue-600" />
@@ -39,7 +43,9 @@ export default function StudentClasses() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600">Kỳ học</p>
-                  <p className="text-2xl font-bold text-gray-900 mt-1">Fall 2026</p>
+                  <p className="text-2xl font-bold text-gray-900 mt-1">
+                    Fall 2026
+                  </p>
                 </div>
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
                   <Calendar className="w-6 h-6 text-green-600" />
@@ -66,12 +72,17 @@ export default function StudentClasses() {
         {/* Classes Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {classes.map((classItem) => (
-            <Card key={classItem.id} className="hover:shadow-xl transition-all duration-300 group">
+            <Card
+              key={classItem.id}
+              className="hover:shadow-xl transition-all duration-300 group"
+            >
               <CardHeader className="pb-3">
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                      <CardTitle className="text-2xl">{classItem.name}</CardTitle>
+                      <CardTitle className="text-2xl">
+                        {classItem.name}
+                      </CardTitle>
                       <Badge variant="default">
                         {classItem.semester} {classItem.year}
                       </Badge>
@@ -87,7 +98,9 @@ export default function StudentClasses() {
                 {/* Instructor */}
                 <div className="flex items-center gap-2 text-gray-700">
                   <Users className="w-4 h-4 text-gray-500" />
-                  <span className="text-sm">Giảng viên: <strong>{classItem.instructor}</strong></span>
+                  <span className="text-sm">
+                    Giảng viên: <strong>{classItem.instructor}</strong>
+                  </span>
                 </div>
 
                 {/* Schedule */}
@@ -109,11 +122,16 @@ export default function StudentClasses() {
                 {/* Students count */}
                 <div className="flex items-center gap-2 text-gray-700">
                   <BookOpen className="w-4 h-4 text-gray-500" />
-                  <span className="text-sm">{classItem.studentCount} sinh viên</span>
+                  <span className="text-sm">
+                    {classItem.studentCount} sinh viên
+                  </span>
                 </div>
 
                 {/* View Details Button */}
-                <Link to={`/student/classes/${classItem.id}`} className="block mt-4">
+                <Link
+                  to={`/student/classes/${classItem.id}`}
+                  className="block mt-4"
+                >
                   <Button className="w-full gap-2 group-hover:bg-indigo-700 transition-colors">
                     Xem chi tiết
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

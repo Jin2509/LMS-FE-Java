@@ -68,7 +68,7 @@ export default function AdminDashboard() {
         {/* Header */}
         <div className="mb-6 flex items-center justify-between">
           <div>
-            <h1 className="text-5xl font-bold bg-gradient-to-r from-red-600 via-orange-600 to-yellow-600 bg-clip-text text-transparent mb-2">
+            <h1 className="text-5xl font-bold  text-[#5E7AC4] mb-2">
               Quản trị hệ thống
             </h1>
             <p className="text-gray-600">Tổng quan và quản lý toàn bộ hệ thống LMS</p>

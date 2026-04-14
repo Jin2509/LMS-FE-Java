@@ -145,7 +145,7 @@ export default function TeacherAssignments() {
       <div className="w-full">
         <div className="mb-8 flex items-center justify-between">
           <div>
-            <h1 className="text-5xl font-bold bg-gradient-to-r from-violet-600 via-fuchsia-600 to-pink-600 bg-clip-text text-transparent mb-2">
+            <h1 className="text-5xl font-bold text-[#5E7AC4] mb-2">
               Bài tập
             </h1>
             <p className="text-gray-600 mt-1">Tạo và quản lý bài tập khóa học</p>

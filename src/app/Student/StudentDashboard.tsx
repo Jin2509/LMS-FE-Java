@@ -4,7 +4,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../co
 import { BookOpen, Clock, Award, TrendingUp } from 'lucide-react';
 import { ContributionGraph } from '../components/ContributionGraph';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
 export default function StudentDashboard() {
   // Generate contribution data (mock data for demo)
   const contributionData = Array.from({ length: 365 }, (_, i) => {
@@ -61,10 +60,12 @@ export default function StudentDashboard() {
     <Layout>
       <div className="max-w-7xl">
         <div className="mb-8">
-          <h1 className="text-5xl font-bold bg-red-600 bg-clip-text text-transparent mb-2">
+          <h1 className="text-5xl font-bold text-[#5E7AC4] mb-2">
             Chào mừng quay trở lại!
           </h1>
-          <p className="text-gray-600 mt-1">Tiếp tục hành trình học tập của bạn</p>
+          <p className="text-gray-600 mt-1">
+            Tiếp tục hành trình học tập của bạn
+          </p>
         </div>
 
         {/* Stats Grid */}
@@ -77,9 +78,13 @@ export default function StudentDashboard() {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm text-gray-600">{stat.label}</p>
-                      <p className="text-2xl font-bold text-gray-900 mt-1">{stat.value}</p>
+                      <p className="text-2xl font-bold text-gray-900 mt-1">
+                        {stat.value}
+                      </p>
                     </div>
-                    <div className={`w-12 h-12 ${stat.bgColor} rounded-lg flex items-center justify-center`}>
+                    <div
+                      className={`w-12 h-12 ${stat.bgColor} rounded-lg flex items-center justify-center`}
+                    >
                       <Icon className={`w-6 h-6 ${stat.color}`} />
                     </div>
                   </div>
@@ -94,7 +99,9 @@ export default function StudentDashboard() {
           <Card>
             <CardHeader>
               <CardTitle>Hoạt động học tập</CardTitle>
-              <CardDescription>Theo dõi thói quen học tập của bạn</CardDescription>
+              <CardDescription>
+                Theo dõi thói quen học tập của bạn
+              </CardDescription>
             </CardHeader>
             <CardContent className="p-6">
               <ContributionGraph data={contributionData} />
@@ -127,7 +134,12 @@ export default function StudentDashboard() {
                     <YAxis key="student-yaxis" />
                     <Tooltip key="student-tooltip" />
                     <Legend key="student-legend" />
-                    <Bar key="student-hours-bar" dataKey="hours" fill="#8884d8" name="Giờ học" />
+                    <Bar
+                      key="student-hours-bar"
+                      dataKey="hours"
+                      fill="#8884d8"
+                      name="Giờ học"
+                    />
                   </BarChart>
                 </ResponsiveContainer>
               </div>

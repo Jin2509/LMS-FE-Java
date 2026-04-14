@@ -146,10 +146,12 @@ export default function StudentSettings() {
     <Layout>
       <div className="max-w-5xl">
         <div className="mb-8">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">
+          <h1 className="text-5xl font-bold text-[#5E7AC4] mb-2">
             Cài đặt
           </h1>
-          <p className="text-gray-600 mt-1">Quản lý thông tin cá nhân và tùy chỉnh hệ thống</p>
+          <p className="text-gray-600 mt-1">
+            Quản lý thông tin cá nhân và tùy chỉnh hệ thống
+          </p>
         </div>
 
         <Tabs defaultValue="profile" className="space-y-6">
@@ -190,9 +192,15 @@ export default function StudentSettings() {
                     </span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Ảnh đại diện</h3>
-                    <p className="text-sm text-gray-600 mb-3">PNG hoặc JPG, tối đa 2MB</p>
-                    <Button variant="outline" size="sm">Tải ảnh lên</Button>
+                    <h3 className="font-semibold text-gray-900 mb-1">
+                      Ảnh đại diện
+                    </h3>
+                    <p className="text-sm text-gray-600 mb-3">
+                      PNG hoặc JPG, tối đa 2MB
+                    </p>
+                    <Button variant="outline" size="sm">
+                      Tải ảnh lên
+                    </Button>
                   </div>
                 </div>
 
@@ -204,7 +212,9 @@ export default function StudentSettings() {
                       <Input
                         id="name"
                         value={profile.name}
-                        onChange={(e) => setProfile({ ...profile, name: e.target.value })}
+                        onChange={(e) =>
+                          setProfile({ ...profile, name: e.target.value })
+                        }
                         className="pl-10"
                       />
                     </div>
@@ -221,7 +231,9 @@ export default function StudentSettings() {
                         className="pl-10 bg-gray-50"
                       />
                     </div>
-                    <p className="text-xs text-gray-500">Email không thể thay đổi</p>
+                    <p className="text-xs text-gray-500">
+                      Email không thể thay đổi
+                    </p>
                   </div>
 
                   <div className="space-y-2">
@@ -231,7 +243,9 @@ export default function StudentSettings() {
                       <Input
                         id="phone"
                         value={profile.phone}
-                        onChange={(e) => setProfile({ ...profile, phone: e.target.value })}
+                        onChange={(e) =>
+                          setProfile({ ...profile, phone: e.target.value })
+                        }
                         placeholder="0123456789"
                         className="pl-10"
                       />
@@ -282,7 +296,9 @@ export default function StudentSettings() {
                     <Input
                       id="address"
                       value={profile.address}
-                      onChange={(e) => setProfile({ ...profile, address: e.target.value })}
+                      onChange={(e) =>
+                        setProfile({ ...profile, address: e.target.value })
+                      }
                       placeholder="Nhập địa chỉ của bạn"
                       className="pl-10"
                     />
@@ -317,9 +333,14 @@ export default function StudentSettings() {
                       <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                       <Input
                         id="oldPassword"
-                        type={showOldPassword ? 'text' : 'password'}
+                        type={showOldPassword ? "text" : "password"}
                         value={passwordData.oldPassword}
-                        onChange={(e) => setPasswordData({ ...passwordData, oldPassword: e.target.value })}
+                        onChange={(e) =>
+                          setPasswordData({
+                            ...passwordData,
+                            oldPassword: e.target.value,
+                          })
+                        }
                         className="pl-10 pr-10"
                       />
                       <button
@@ -342,9 +363,14 @@ export default function StudentSettings() {
                       <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                       <Input
                         id="newPassword"
-                        type={showNewPassword ? 'text' : 'password'}
+                        type={showNewPassword ? "text" : "password"}
                         value={passwordData.newPassword}
-                        onChange={(e) => setPasswordData({ ...passwordData, newPassword: e.target.value })}
+                        onChange={(e) =>
+                          setPasswordData({
+                            ...passwordData,
+                            newPassword: e.target.value,
+                          })
+                        }
                         className="pl-10 pr-10"
                       />
                       <button
@@ -359,23 +385,34 @@ export default function StudentSettings() {
                         )}
                       </button>
                     </div>
-                    <p className="text-xs text-gray-500">Mật khẩu phải có ít nhất 6 ký tự</p>
+                    <p className="text-xs text-gray-500">
+                      Mật khẩu phải có ít nhất 6 ký tự
+                    </p>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="confirmPassword">Xác nhận mật khẩu mới</Label>
+                    <Label htmlFor="confirmPassword">
+                      Xác nhận mật khẩu mới
+                    </Label>
                     <div className="relative">
                       <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                       <Input
                         id="confirmPassword"
-                        type={showConfirmPassword ? 'text' : 'password'}
+                        type={showConfirmPassword ? "text" : "password"}
                         value={passwordData.confirmPassword}
-                        onChange={(e) => setPasswordData({ ...passwordData, confirmPassword: e.target.value })}
+                        onChange={(e) =>
+                          setPasswordData({
+                            ...passwordData,
+                            confirmPassword: e.target.value,
+                          })
+                        }
                         className="pl-10 pr-10"
                       />
                       <button
                         type="button"
-                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                        onClick={() =>
+                          setShowConfirmPassword(!showConfirmPassword)
+                        }
                         className="absolute right-3 top-1/2 transform -translate-y-1/2"
                       >
                         {showConfirmPassword ? (
@@ -389,7 +426,16 @@ export default function StudentSettings() {
                 </div>
 
                 <div className="flex justify-end gap-3 pt-4 border-t">
-                  <Button variant="outline" onClick={() => setPasswordData({ oldPassword: '', newPassword: '', confirmPassword: '' })}>
+                  <Button
+                    variant="outline"
+                    onClick={() =>
+                      setPasswordData({
+                        oldPassword: "",
+                        newPassword: "",
+                        confirmPassword: "",
+                      })
+                    }
+                  >
                     Hủy
                   </Button>
                   <Button onClick={handleChangePassword} className="gap-2">
@@ -402,14 +448,23 @@ export default function StudentSettings() {
                 <div className="pt-6 border-t">
                   <div className="flex items-start justify-between">
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Xác thực hai yếu tố</h3>
-                      <p className="text-sm text-gray-600">Tăng cường bảo mật tài khoản với xác thực 2FA</p>
+                      <h3 className="font-semibold text-gray-900 mb-1">
+                        Xác thực hai yếu tố
+                      </h3>
+                      <p className="text-sm text-gray-600">
+                        Tăng cường bảo mật tài khoản với xác thực 2FA
+                      </p>
                     </div>
-                    <Badge variant="outline" className="text-orange-600 border-orange-300">
+                    <Badge
+                      variant="outline"
+                      className="text-orange-600 border-orange-300"
+                    >
                       Chưa kích hoạt
                     </Badge>
                   </div>
-                  <Button variant="outline" className="mt-4">Kích hoạt 2FA</Button>
+                  <Button variant="outline" className="mt-4">
+                    Kích hoạt 2FA
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -430,13 +485,22 @@ export default function StudentSettings() {
                     <div className="flex items-start gap-3">
                       <Mail className="w-5 h-5 text-gray-600 mt-0.5" />
                       <div>
-                        <p className="font-medium text-gray-900">Thông báo qua Email</p>
-                        <p className="text-sm text-gray-600">Nhận thông báo qua địa chỉ email</p>
+                        <p className="font-medium text-gray-900">
+                          Thông báo qua Email
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          Nhận thông báo qua địa chỉ email
+                        </p>
                       </div>
                     </div>
                     <Switch
                       checked={notifications.emailNotifications}
-                      onCheckedChange={(checked) => setNotifications({ ...notifications, emailNotifications: checked })}
+                      onCheckedChange={(checked) =>
+                        setNotifications({
+                          ...notifications,
+                          emailNotifications: checked,
+                        })
+                      }
                     />
                   </div>
 
@@ -444,13 +508,22 @@ export default function StudentSettings() {
                     <div className="flex items-start gap-3">
                       <Bell className="w-5 h-5 text-gray-600 mt-0.5" />
                       <div>
-                        <p className="font-medium text-gray-900">Nhắc nhở bài tập</p>
-                        <p className="text-sm text-gray-600">Nhận nhắc nhở về hạn nộp bài tập</p>
+                        <p className="font-medium text-gray-900">
+                          Nhắc nhở bài tập
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          Nhận nhắc nhở về hạn nộp bài tập
+                        </p>
                       </div>
                     </div>
                     <Switch
                       checked={notifications.assignmentReminders}
-                      onCheckedChange={(checked) => setNotifications({ ...notifications, assignmentReminders: checked })}
+                      onCheckedChange={(checked) =>
+                        setNotifications({
+                          ...notifications,
+                          assignmentReminders: checked,
+                        })
+                      }
                     />
                   </div>
 
@@ -458,13 +531,22 @@ export default function StudentSettings() {
                     <div className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-gray-600 mt-0.5" />
                       <div>
-                        <p className="font-medium text-gray-900">Thông báo điểm số</p>
-                        <p className="text-sm text-gray-600">Nhận thông báo khi có điểm mới</p>
+                        <p className="font-medium text-gray-900">
+                          Thông báo điểm số
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          Nhận thông báo khi có điểm mới
+                        </p>
                       </div>
                     </div>
                     <Switch
                       checked={notifications.gradeNotifications}
-                      onCheckedChange={(checked) => setNotifications({ ...notifications, gradeNotifications: checked })}
+                      onCheckedChange={(checked) =>
+                        setNotifications({
+                          ...notifications,
+                          gradeNotifications: checked,
+                        })
+                      }
                     />
                   </div>
 
@@ -472,13 +554,22 @@ export default function StudentSettings() {
                     <div className="flex items-start gap-3">
                       <Bell className="w-5 h-5 text-gray-600 mt-0.5" />
                       <div>
-                        <p className="font-medium text-gray-900">Cập nhật khóa học</p>
-                        <p className="text-sm text-gray-600">Nhận thông báo về nội dung mới trong khóa học</p>
+                        <p className="font-medium text-gray-900">
+                          Cập nhật khóa học
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          Nhận thông báo về nội dung mới trong khóa học
+                        </p>
                       </div>
                     </div>
                     <Switch
                       checked={notifications.courseUpdates}
-                      onCheckedChange={(checked) => setNotifications({ ...notifications, courseUpdates: checked })}
+                      onCheckedChange={(checked) =>
+                        setNotifications({
+                          ...notifications,
+                          courseUpdates: checked,
+                        })
+                      }
                     />
                   </div>
 
@@ -486,13 +577,22 @@ export default function StudentSettings() {
                     <div className="flex items-start gap-3">
                       <Bell className="w-5 h-5 text-gray-600 mt-0.5" />
                       <div>
-                        <p className="font-medium text-gray-900">Thông báo lớp học</p>
-                        <p className="text-sm text-gray-600">Nhận thông báo từ giảng viên</p>
+                        <p className="font-medium text-gray-900">
+                          Thông báo lớp học
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          Nhận thông báo từ giảng viên
+                        </p>
                       </div>
                     </div>
                     <Switch
                       checked={notifications.classAnnouncements}
-                      onCheckedChange={(checked) => setNotifications({ ...notifications, classAnnouncements: checked })}
+                      onCheckedChange={(checked) =>
+                        setNotifications({
+                          ...notifications,
+                          classAnnouncements: checked,
+                        })
+                      }
                     />
                   </div>
 
@@ -500,13 +600,22 @@ export default function StudentSettings() {
                     <div className="flex items-start gap-3">
                       <Mail className="w-5 h-5 text-gray-600 mt-0.5" />
                       <div>
-                        <p className="font-medium text-gray-900">Tóm tắt hàng tuần</p>
-                        <p className="text-sm text-gray-600">Nhận email tóm tắt hoạt động hàng tuần</p>
+                        <p className="font-medium text-gray-900">
+                          Tóm tắt hàng tuần
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          Nhận email tóm tắt hoạt động hàng tuần
+                        </p>
                       </div>
                     </div>
                     <Switch
                       checked={notifications.weeklyDigest}
-                      onCheckedChange={(checked) => setNotifications({ ...notifications, weeklyDigest: checked })}
+                      onCheckedChange={(checked) =>
+                        setNotifications({
+                          ...notifications,
+                          weeklyDigest: checked,
+                        })
+                      }
                     />
                   </div>
                 </div>
@@ -538,7 +647,9 @@ export default function StudentSettings() {
                     <select
                       id="theme"
                       value={appearance.theme}
-                      onChange={(e) => setAppearance({ ...appearance, theme: e.target.value })}
+                      onChange={(e) =>
+                        setAppearance({ ...appearance, theme: e.target.value })
+                      }
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     >
                       <option value="light">Sáng</option>
@@ -554,7 +665,12 @@ export default function StudentSettings() {
                       <select
                         id="language"
                         value={appearance.language}
-                        onChange={(e) => setAppearance({ ...appearance, language: e.target.value })}
+                        onChange={(e) =>
+                          setAppearance({
+                            ...appearance,
+                            language: e.target.value,
+                          })
+                        }
                         className="w-full px-3 py-2 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                       >
                         <option value="vi">Tiếng Việt</option>
@@ -568,7 +684,12 @@ export default function StudentSettings() {
                     <select
                       id="dateFormat"
                       value={appearance.dateFormat}
-                      onChange={(e) => setAppearance({ ...appearance, dateFormat: e.target.value })}
+                      onChange={(e) =>
+                        setAppearance({
+                          ...appearance,
+                          dateFormat: e.target.value,
+                        })
+                      }
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     >
                       <option value="dd/mm/yyyy">DD/MM/YYYY</option>
@@ -582,7 +703,12 @@ export default function StudentSettings() {
                     <select
                       id="timezone"
                       value={appearance.timezone}
-                      onChange={(e) => setAppearance({ ...appearance, timezone: e.target.value })}
+                      onChange={(e) =>
+                        setAppearance({
+                          ...appearance,
+                          timezone: e.target.value,
+                        })
+                      }
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     >
                       <option value="Asia/Ho_Chi_Minh">Việt Nam (GMT+7)</option>

@@ -47,9 +47,7 @@ export default function StudentAssignments() {
     <Layout>
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 bg-clip-text text-transparent mb-2">
-            Bài tập
-          </h1>
+          <h1 className="text-5xl font-bold text-[#5E7AC4] mb-2">Bài tập</h1>
           <p className="text-gray-600 mt-1">Theo dõi và nộp bài tập của bạn</p>
         </div>
 
@@ -60,7 +58,9 @@ export default function StudentAssignments() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600">Chưa nộp</p>
-                  <p className="text-2xl font-bold text-gray-900 mt-1">{pendingAssignments.length}</p>
+                  <p className="text-2xl font-bold text-gray-900 mt-1">
+                    {pendingAssignments.length}
+                  </p>
                 </div>
                 <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
                   <Clock className="w-6 h-6 text-orange-600" />
@@ -73,7 +73,9 @@ export default function StudentAssignments() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600">Đã nộp</p>
-                  <p className="text-2xl font-bold text-gray-900 mt-1">{submittedAssignments.length}</p>
+                  <p className="text-2xl font-bold text-gray-900 mt-1">
+                    {submittedAssignments.length}
+                  </p>
                 </div>
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                   <FileText className="w-6 h-6 text-blue-600" />
@@ -86,7 +88,9 @@ export default function StudentAssignments() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600">Đã chấm điểm</p>
-                  <p className="text-2xl font-bold text-gray-900 mt-1">{gradedAssignments.length}</p>
+                  <p className="text-2xl font-bold text-gray-900 mt-1">
+                    {gradedAssignments.length}
+                  </p>
                 </div>
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
                   <CheckCircle className="w-6 h-6 text-green-600" />
@@ -99,9 +103,15 @@ export default function StudentAssignments() {
         {/* Assignments Tabs */}
         <Tabs defaultValue="pending" className="space-y-6">
           <TabsList>
-            <TabsTrigger value="pending">Chưa nộp ({pendingAssignments.length})</TabsTrigger>
-            <TabsTrigger value="submitted">Đã nộp ({submittedAssignments.length})</TabsTrigger>
-            <TabsTrigger value="graded">Đã chấm ({gradedAssignments.length})</TabsTrigger>
+            <TabsTrigger value="pending">
+              Chưa nộp ({pendingAssignments.length})
+            </TabsTrigger>
+            <TabsTrigger value="submitted">
+              Đã nộp ({submittedAssignments.length})
+            </TabsTrigger>
+            <TabsTrigger value="graded">
+              Đã chấm ({gradedAssignments.length})
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="pending" className="space-y-4">
@@ -110,15 +120,24 @@ export default function StudentAssignments() {
               const isUrgent = daysLeft <= 3;
 
               return (
-                <Card key={assignment.id} className={isUrgent ? 'border-red-200 bg-red-50/50' : ''}>
+                <Card
+                  key={assignment.id}
+                  className={isUrgent ? "border-red-200 bg-red-50/50" : ""}
+                >
                   <CardContent className="p-6">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
                         <div className="flex items-start gap-2 mb-2">
-                          {isUrgent && <AlertCircle className="w-5 h-5 text-red-500 mt-0.5" />}
+                          {isUrgent && (
+                            <AlertCircle className="w-5 h-5 text-red-500 mt-0.5" />
+                          )}
                           <div>
-                            <h3 className="font-semibold text-gray-900 text-lg">{assignment.title}</h3>
-                            <p className="text-sm text-gray-600 mt-1">{assignment.course}</p>
+                            <h3 className="font-semibold text-gray-900 text-lg">
+                              {assignment.title}
+                            </h3>
+                            <p className="text-sm text-gray-600 mt-1">
+                              {assignment.course}
+                            </p>
                           </div>
                         </div>
                         <div className="flex items-center gap-6 mt-4">
@@ -128,11 +147,19 @@ export default function StudentAssignments() {
                           </div>
                           <div className="flex items-center gap-2 text-sm">
                             <Clock className="w-4 h-4" />
-                            <span className={isUrgent ? 'text-red-600 font-medium' : 'text-gray-600'}>
+                            <span
+                              className={
+                                isUrgent
+                                  ? "text-red-600 font-medium"
+                                  : "text-gray-600"
+                              }
+                            >
                               Còn {daysLeft} ngày
                             </span>
                           </div>
-                          <Badge variant={isUrgent ? 'destructive' : 'secondary'}>
+                          <Badge
+                            variant={isUrgent ? "destructive" : "secondary"}
+                          >
                             {assignment.status}
                           </Badge>
                         </div>
@@ -152,8 +179,12 @@ export default function StudentAssignments() {
               <Card>
                 <CardContent className="p-12 text-center">
                   <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                  <h3 className="font-semibold text-gray-900 mb-2">Hoàn thành hết rồi!</h3>
-                  <p className="text-gray-600">Bạn không có bài tập nào cần nộp</p>
+                  <h3 className="font-semibold text-gray-900 mb-2">
+                    Hoàn thành hết rồi!
+                  </h3>
+                  <p className="text-gray-600">
+                    Bạn không có bài tập nào cần nộp
+                  </p>
                 </CardContent>
               </Card>
             )}
@@ -165,8 +196,12 @@ export default function StudentAssignments() {
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
-                      <h3 className="font-semibold text-gray-900 text-lg">{assignment.title}</h3>
-                      <p className="text-sm text-gray-600 mt-1">{assignment.course}</p>
+                      <h3 className="font-semibold text-gray-900 text-lg">
+                        {assignment.title}
+                      </h3>
+                      <p className="text-sm text-gray-600 mt-1">
+                        {assignment.course}
+                      </p>
                       <div className="flex items-center gap-6 mt-4">
                         <div className="flex items-center gap-2 text-sm text-gray-600">
                           <Calendar className="w-4 h-4" />
@@ -178,7 +213,11 @@ export default function StudentAssignments() {
                         <div className="flex items-center gap-2 text-sm text-blue-700">
                           <FileText className="w-4 h-4" />
                           <span className="font-medium">bai_nop.pdf</span>
-                          <Button variant="ghost" size="sm" className="ml-auto gap-1">
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className="ml-auto gap-1"
+                          >
                             <Download className="w-4 h-4" />
                             Tải xuống
                           </Button>
@@ -199,12 +238,20 @@ export default function StudentAssignments() {
                     <div className="flex-1">
                       <div className="flex items-start justify-between mb-4">
                         <div>
-                          <h3 className="font-semibold text-gray-900 text-lg">{assignment.title}</h3>
-                          <p className="text-sm text-gray-600 mt-1">{assignment.course}</p>
+                          <h3 className="font-semibold text-gray-900 text-lg">
+                            {assignment.title}
+                          </h3>
+                          <p className="text-sm text-gray-600 mt-1">
+                            {assignment.course}
+                          </p>
                         </div>
                         <div className="text-right">
-                          <div className="text-3xl font-bold text-indigo-600">{assignment.grade}%</div>
-                          <Badge variant="default" className="mt-2">Đã chấm điểm</Badge>
+                          <div className="text-3xl font-bold text-indigo-600">
+                            {assignment.grade}%
+                          </div>
+                          <Badge variant="default" className="mt-2">
+                            Đã chấm điểm
+                          </Badge>
                         </div>
                       </div>
                       <div className="flex items-center gap-6 mb-4">
@@ -214,11 +261,14 @@ export default function StudentAssignments() {
                         </div>
                       </div>
                       <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
-                        <h4 className="font-medium text-gray-900 mb-2">Nhận xét từ giảng viên</h4>
+                        <h4 className="font-medium text-gray-900 mb-2">
+                          Nhận xét từ giảng viên
+                        </h4>
                         <p className="text-sm text-gray-700">
-                          Làm rất tốt! Bài làm của bạn thể hiện sự hiểu biết vững chắc về các khái niệm.
-                          Code được cấu trúc tốt và có tài liệu rõ ràng. Hãy thử khám phá thêm các trường hợp
-                          biên để có kết quả tốt hơn nữa.
+                          Làm rất tốt! Bài làm của bạn thể hiện sự hiểu biết
+                          vững chắc về các khái niệm. Code được cấu trúc tốt và
+                          có tài liệu rõ ràng. Hãy thử khám phá thêm các trường
+                          hợp biên để có kết quả tốt hơn nữa.
                         </p>
                       </div>
                     </div>

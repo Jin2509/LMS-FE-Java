@@ -64,7 +64,7 @@ export default function TeacherCourses() {
       <div className="max-w-7xl">
         <div className="mb-8 flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Khoá học của tôi</h1>
+            <h1 className="text-5xl font-bold text-[#5E7AC4]">Khoá học của tôi</h1>
             <p className="text-gray-600 mt-1">Quản lí khoá học và nội dung của bạn</p>
           </div>
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>

@@ -35,12 +35,9 @@ import {
   MapPin,
   Clock,
 } from "lucide-react";
-import { Link } from "react-router-dom"; // Đổi từ 'react-router' thành 'react-router-dom' nếu cần
+import { Link } from "react-router-dom"; 
 import { classes, students, classStudents } from "../lib/data";
 import { toast } from "sonner";
-
-// ... phần còn lại giữ nguyên
-// Mock data for teachers
 const teachers = [
   {
     id: "1",
@@ -305,7 +302,7 @@ export default function AdminClasses() {
         <div className="mb-8">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-5xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
+              <h1 className="text-5xl font-bold  text-[#5E7AC4] mb-2">
                 Quản lý lớp học
               </h1>
               <p className="text-gray-600 mt-1">

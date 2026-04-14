@@ -195,10 +195,12 @@ export default function StudentSchedule() {
         <div className="mb-8">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">
+              <h1 className="text-5xl font-bold text-[#5E7AC4] mb-2">
                 Thời khóa biểu
               </h1>
-              <p className="text-gray-600 mt-1">Lịch học và hoạt động trong tuần</p>
+              <p className="text-gray-600 mt-1">
+                Lịch học và hoạt động trong tuần
+              </p>
             </div>
             <div className="flex gap-3">
               <Button variant="outline" className="gap-2">
@@ -220,7 +222,9 @@ export default function StudentSchedule() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600">Tổng số tiết</p>
-                  <p className="text-2xl font-bold text-gray-900 mt-1">{totalClasses}</p>
+                  <p className="text-2xl font-bold text-gray-900 mt-1">
+                    {totalClasses}
+                  </p>
                 </div>
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                   <BookOpen className="w-6 h-6 text-blue-600" />
@@ -234,7 +238,9 @@ export default function StudentSchedule() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600">Lý thuyết</p>
-                  <p className="text-2xl font-bold text-gray-900 mt-1">{theoryClasses}</p>
+                  <p className="text-2xl font-bold text-gray-900 mt-1">
+                    {theoryClasses}
+                  </p>
                 </div>
                 <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center">
                   <BookOpen className="w-6 h-6 text-indigo-600" />
@@ -248,7 +254,9 @@ export default function StudentSchedule() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600">Thực hành</p>
-                  <p className="text-2xl font-bold text-gray-900 mt-1">{practiceClasses}</p>
+                  <p className="text-2xl font-bold text-gray-900 mt-1">
+                    {practiceClasses}
+                  </p>
                 </div>
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
                   <BookOpen className="w-6 h-6 text-green-600" />
@@ -262,7 +270,9 @@ export default function StudentSchedule() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600">Môn học</p>
-                  <p className="text-2xl font-bold text-gray-900 mt-1">{uniqueCourses}</p>
+                  <p className="text-2xl font-bold text-gray-900 mt-1">
+                    {uniqueCourses}
+                  </p>
                 </div>
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
                   <Calendar className="w-6 h-6 text-purple-600" />
@@ -286,7 +296,12 @@ export default function StudentSchedule() {
               </Button>
               <div className="text-center">
                 <p className="text-lg font-semibold text-gray-900">
-                  Tuần {currentWeek === 0 ? 'này' : currentWeek > 0 ? `+${currentWeek}` : currentWeek}
+                  Tuần{" "}
+                  {currentWeek === 0
+                    ? "này"
+                    : currentWeek > 0
+                      ? `+${currentWeek}`
+                      : currentWeek}
                 </p>
                 <p className="text-sm text-gray-600">
                   {formatDate(weekDates[0])} - {formatDate(weekDates[6])}
@@ -307,12 +322,16 @@ export default function StudentSchedule() {
         {/* Schedule Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {daysOfWeek.map((day, dayIndex) => {
-            const daySchedule = scheduleData[day.key as keyof typeof scheduleData];
+            const daySchedule =
+              scheduleData[day.key as keyof typeof scheduleData];
             const date = weekDates[dayIndex];
             const todayClass = isToday(date);
 
             return (
-              <Card key={day.key} className={todayClass ? 'ring-2 ring-indigo-500' : ''}>
+              <Card
+                key={day.key}
+                className={todayClass ? "ring-2 ring-indigo-500" : ""}
+              >
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <div>
@@ -340,11 +359,13 @@ export default function StudentSchedule() {
                           <h4 className="font-semibold text-gray-900 text-sm leading-tight flex-1">
                             {session.courseName}
                           </h4>
-                          <Badge className={`${getBadgeColor(session.type)} text-white text-xs ml-2`}>
+                          <Badge
+                            className={`${getBadgeColor(session.type)} text-white text-xs ml-2`}
+                          >
                             {session.type}
                           </Badge>
                         </div>
-                        
+
                         <div className="space-y-1.5 mt-3">
                           <div className="flex items-center gap-2 text-xs text-gray-700">
                             <Clock className="w-3.5 h-3.5 flex-shrink-0" />
@@ -356,7 +377,9 @@ export default function StudentSchedule() {
                           </div>
                           <div className="flex items-center gap-2 text-xs text-gray-700">
                             <User className="w-3.5 h-3.5 flex-shrink-0" />
-                            <span className="truncate">{session.instructor}</span>
+                            <span className="truncate">
+                              {session.instructor}
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -376,33 +399,42 @@ export default function StudentSchedule() {
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
-              {Object.values(scheduleData).flat().slice(0, 3).map((session) => (
-                <div
-                  key={session.id}
-                  className="flex items-center gap-4 p-4 border border-gray-200 rounded-lg hover:border-indigo-300 transition-colors"
-                >
-                  <div className={`w-16 h-16 rounded-lg flex items-center justify-center ${getColorClasses(session.color)}`}>
-                    <BookOpen className="w-8 h-8 text-gray-700" />
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="font-semibold text-gray-900">{session.courseName}</h4>
-                    <div className="flex items-center gap-3 mt-1 text-sm text-gray-600">
-                      <span className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" />
-                        {session.time}
-                      </span>
-                      <span>•</span>
-                      <span className="flex items-center gap-1">
-                        <MapPin className="w-4 h-4" />
-                        {session.location}
-                      </span>
+              {Object.values(scheduleData)
+                .flat()
+                .slice(0, 3)
+                .map((session) => (
+                  <div
+                    key={session.id}
+                    className="flex items-center gap-4 p-4 border border-gray-200 rounded-lg hover:border-indigo-300 transition-colors"
+                  >
+                    <div
+                      className={`w-16 h-16 rounded-lg flex items-center justify-center ${getColorClasses(session.color)}`}
+                    >
+                      <BookOpen className="w-8 h-8 text-gray-700" />
                     </div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-gray-900">
+                        {session.courseName}
+                      </h4>
+                      <div className="flex items-center gap-3 mt-1 text-sm text-gray-600">
+                        <span className="flex items-center gap-1">
+                          <Clock className="w-4 h-4" />
+                          {session.time}
+                        </span>
+                        <span>•</span>
+                        <span className="flex items-center gap-1">
+                          <MapPin className="w-4 h-4" />
+                          {session.location}
+                        </span>
+                      </div>
+                    </div>
+                    <Badge
+                      className={`${getBadgeColor(session.type)} text-white`}
+                    >
+                      {session.type}
+                    </Badge>
                   </div>
-                  <Badge className={`${getBadgeColor(session.type)} text-white`}>
-                    {session.type}
-                  </Badge>
-                </div>
-              ))}
+                ))}
             </div>
           </CardContent>
         </Card>
