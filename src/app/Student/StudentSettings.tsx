@@ -657,28 +657,6 @@ export default function StudentSettings() {
                       <option value="auto">Tự động</option>
                     </select>
                   </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="language">Ngôn ngữ</Label>
-                    <div className="relative">
-                      <Globe className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <select
-                        id="language"
-                        value={appearance.language}
-                        onChange={(e) =>
-                          setAppearance({
-                            ...appearance,
-                            language: e.target.value,
-                          })
-                        }
-                        className="w-full px-3 py-2 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                      >
-                        <option value="vi">Tiếng Việt</option>
-                        <option value="en">English</option>
-                      </select>
-                    </div>
-                  </div>
-
                   <div className="space-y-2">
                     <Label htmlFor="dateFormat">Định dạng ngày</Label>
                     <select
@@ -695,26 +673,6 @@ export default function StudentSettings() {
                       <option value="dd/mm/yyyy">DD/MM/YYYY</option>
                       <option value="mm/dd/yyyy">MM/DD/YYYY</option>
                       <option value="yyyy-mm-dd">YYYY-MM-DD</option>
-                    </select>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="timezone">Múi giờ</Label>
-                    <select
-                      id="timezone"
-                      value={appearance.timezone}
-                      onChange={(e) =>
-                        setAppearance({
-                          ...appearance,
-                          timezone: e.target.value,
-                        })
-                      }
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                    >
-                      <option value="Asia/Ho_Chi_Minh">Việt Nam (GMT+7)</option>
-                      <option value="Asia/Bangkok">Bangkok (GMT+7)</option>
-                      <option value="Asia/Singapore">Singapore (GMT+8)</option>
-                      <option value="Asia/Tokyo">Tokyo (GMT+9)</option>
                     </select>
                   </div>
                 </div>
